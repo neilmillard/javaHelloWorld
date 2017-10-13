@@ -24,8 +24,14 @@ dependencies {
     // JPA Data (We are going to use Repositories, Entities, Hibernate, etc...)
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 
+    // String checking during config
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+
     // Use MySQL Connector-3
     compile 'mysql:mysql-connector-java'
+
+    // Make the H2 database available too
+    compile 'com.h2database:h2'
 
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }
