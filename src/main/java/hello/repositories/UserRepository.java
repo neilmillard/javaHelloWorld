@@ -1,5 +1,6 @@
 package hello.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import hello.model.User;
 
@@ -7,7 +8,8 @@ import hello.model.User;
 // CRUD refers Create, Read, Update, Delete
 // Could extend JpaRepository provides some goodies like
 // paging and sorting which most of the time is needed in a FE application
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
+        //CrudRepository<User, Long> {
 
     User findByName(String name);
 }
