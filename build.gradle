@@ -33,6 +33,9 @@ dependencies {
     // Make the H2 database available too
     compile 'com.h2database:h2'
 
+    // add Freemarker for templates
+    compile 'org.springframework.boot:spring-boot-starter-freemarker'
+
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
 }
 

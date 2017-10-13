@@ -54,13 +54,13 @@ public class MainController {
 
     // ------------------ Create a user --------------------------------------------------
     @CrossOrigin(origins = origin)
-    @PostMapping(value = "/user/")
+    @RequestMapping(value = "/user/", method = RequestMethod.POST)
     public ResponseEntity<?> createUser (@RequestBody User user,
                                          UriComponentsBuilder ucBuilder) {
         logger.info("Creating User : {}", user);
         if (userService.isUserExist(user)) {
             logger.error("unable to create. A user with name {} already exists", user.getName());
-            return new ResponseEntity<Object>(new CustomErrorType("unable to create. A user with name " +
+            return new ResponseEntity(new CustomErrorType("unable to create. A user with name " +
                     user.getName() + " already exists"),HttpStatus.CONFLICT);
         }
         userService.saveUser(user);
