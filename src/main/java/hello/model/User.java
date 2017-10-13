@@ -1,7 +1,8 @@
-package hello;
+package hello.model;
 
 // User model using org.springframework.boot:spring-boot-starter-data-jpa
-// TODO: find a way to pass database creds without /resources/application.properties file!!
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,16 +13,18 @@ import javax.persistence.Id;
 // This tells Hibernate to make a table out of this class
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotEmpty
     private String name;
     private String email;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
