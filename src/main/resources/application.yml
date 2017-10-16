@@ -1,5 +1,5 @@
 ---
-# This is meant to be configured by the CI during deployment
+# This is meant to be configured by the CI during build
 spring:
   profiles: local,default
 datasource:
