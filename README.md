@@ -31,7 +31,7 @@ is prod or local, if not specified, default is used. this is aliased to local
 This can be deployed to Cloud Foundry, after the ```cf``` cmd line is installed and logged in.
 
 ```batch
-cf push helloworldbackend -p build/libs/gs-accessing-data-mysql-0.1.0.jar  --no-start
+cf push helloworldbackend -p build/libs/gs-accessing-data-postgresql-0.1.0.jar  --no-start
 ```
 
 create service
