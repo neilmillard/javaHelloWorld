@@ -62,6 +62,7 @@ public class SpringJDBCConfiguration {
     }
 
     // need a Cloud() object to query Cloud Foundary services
+    // ref http://www.java-allandsundry.com/2014/08/deploying-spring-boot-application-to.html
     @Bean
     public Cloud cloud() {
         try {

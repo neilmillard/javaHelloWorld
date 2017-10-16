@@ -37,13 +37,13 @@ cf push helloworldbackend -p build/libs/gs-accessing-data-mysql-0.1.0.jar  --no-
 create service
 --------------
 
-
+cf create-service elephantsql turtle hw-postgres
 
 bind and run app
 -------
 
 ```batch
-cf bind-service helloworldbackend psgservice
+cf bind-service helloworldbackend hw-postgres
 cf restart helloworldbackend
 ```
 
