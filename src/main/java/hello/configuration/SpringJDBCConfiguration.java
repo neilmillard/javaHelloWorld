@@ -4,6 +4,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.Cloud;
+import org.springframework.cloud.CloudException;
+import org.springframework.cloud.CloudFactory;
+import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -42,14 +46,30 @@ public class SpringJDBCConfiguration {
      */
     @Bean
     public DataSource dataSource() {
-        DataSourceProperties dataSourceProperties = dataSourceProperties();
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        //MySQL
-        dataSource.setDriverClassName(dataSourceProperties.getDriverClassName());
-        dataSource.setUrl(dataSourceProperties.getUrl());
-        dataSource.setUsername(dataSourceProperties.getUsername());
-        dataSource.setPassword(dataSourceProperties.getPassword());
-        return dataSource;
+        Cloud cloud = cloud();
+        if(cloud!=null) {
+            return cloud().getSingletonServiceConnector(DataSource.class, null);
+        } else {
+            DataSourceProperties dataSourceProperties = dataSourceProperties();
+            DriverManagerDataSource dataSource = new DriverManagerDataSource();
+            //MySQL
+            dataSource.setDriverClassName(dataSourceProperties.getDriverClassName());
+            dataSource.setUrl(dataSourceProperties.getUrl());
+            dataSource.setUsername(dataSourceProperties.getUsername());
+            dataSource.setPassword(dataSourceProperties.getPassword());
+            return dataSource;
+        }
+    }
+
+    // need a Cloud() object to query Cloud Foundary services
+    @Bean
+    public Cloud cloud() {
+        try {
+            CloudFactory cloudFactory = new CloudFactory();
+            return cloudFactory.getCloud();
+        } catch (CloudException ce) {
+            return null;
+        }
     }
 
     /*

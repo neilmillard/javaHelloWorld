@@ -33,6 +33,12 @@ dependencies {
     // Make the H2 database available too
     compile 'com.h2database:h2'
 
+    // spring cloud connectors for access to CF services
+    // https://cloud.spring.io/spring-cloud-connectors/spring-cloud-spring-service-connector.html
+    compile 'org.springframework.cloud:spring-cloud-spring-service-connector:1.2.4.RELEASE'
+    // If you intend to deploy the app on Cloud Foundry, add the following
+    compile 'org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.2.4.RELEASE'
+
     // add Freemarker for templates
     compile 'org.springframework.boot:spring-boot-starter-freemarker'
 
