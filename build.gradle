@@ -46,6 +46,6 @@ dependencies {
 }
 
 jar {
-    baseName = 'gs-accessing-data-mysql'
+    baseName = 'gs-accessing-data-postgresql'
     version = '0.1.0'
 }

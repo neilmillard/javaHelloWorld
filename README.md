@@ -17,12 +17,12 @@ To create a deployable self contained jar (FAT jar)
 ./gradlew bootRepackage
 ```
 
-This creates a FAT jar in /build/libs/gs-accessing-data-mysql-0.1.0.jar
+This creates a FAT jar in /build/libs/gs-accessing-data-postgresql-0.1.0.jar
 
 This can be executed with
 
 ```batch
-java -jar gs-accessing-data-mysql-0.1.0.jar --spring.profiles.active=prod
+java -jar gs-accessing-data-postgresql-0.1.0.jar --spring.profiles.active=prod
 ```
 
 profile determines which credentials to use in the /src/main/resources/application.yml file  
