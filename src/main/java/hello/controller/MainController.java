@@ -15,19 +15,19 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController // This means that this class is a Controller
 @RequestMapping(path="/api") // URL's start with /demo (after Application path)
 public class MainController {
 
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-    private static final String origin = "http://localhost:8000";
+    // private static final String origin = "http://localhost:8000";
 
     @Autowired // get the bean called userService which points to userRepository
     private UserService userService;
 
     // -------------------Retrieve All Users---------------------------------------------
-
-    @CrossOrigin(origins = origin)
+    @CrossOrigin
     @RequestMapping(value = "/user/", method = RequestMethod.GET)
     public ResponseEntity<List<User>> listAllUsers() {
         List<User> users = userService.findAllUsers();
@@ -39,7 +39,7 @@ public class MainController {
     }
 
     // -------------------Retrieve Single User------------------------------------------
-    @CrossOrigin(origins = origin)
+    @CrossOrigin
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getUser(@PathVariable("id") long id) {
         logger.info("Fetching User with id {}", id);
@@ -53,7 +53,7 @@ public class MainController {
     }
 
     // ------------------ Create a user --------------------------------------------------
-    @CrossOrigin(origins = origin)
+    @CrossOrigin
     @RequestMapping(value = "/user/", method = RequestMethod.POST)
     public ResponseEntity<?> createUser (@RequestBody User user,
                                          UriComponentsBuilder ucBuilder) {
@@ -71,7 +71,7 @@ public class MainController {
     }
 
     // ------------------- Update a User ------------------------------------------------
-    @CrossOrigin(origins = origin)
+    @CrossOrigin
     @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody User user) {
         logger.info("Updating User with id {}", id);
@@ -92,7 +92,7 @@ public class MainController {
     }
 
     // ------------------- Delete a User-----------------------------------------
-    @CrossOrigin(origins = origin)
+    @CrossOrigin
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
         logger.info("Fetching & Deleting User with id {}", id);
@@ -108,7 +108,7 @@ public class MainController {
     }
 
     // ------------------- Delete All Users-----------------------------
-    @CrossOrigin(origins = origin)
+    @CrossOrigin
     @RequestMapping(value = "/user/", method = RequestMethod.DELETE)
     public ResponseEntity<User> deleteAllUsers() {
         logger.info("Deleting All Users");

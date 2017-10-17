@@ -1,6 +1,6 @@
 ---
 applications:
-- name: hellowworldbackend
+- name: helloworldbackend
   buildpack: java_buildpack
   memory: 1G
   instances: 1

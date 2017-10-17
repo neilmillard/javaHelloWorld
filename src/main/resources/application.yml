@@ -1,29 +1,11 @@
 ---
 # This is meant to be configured by the CI during build
-spring:
-  profiles: local,default
 datasource:
   sampleapp:
-    url: jdbc:h2:~/test
-    username: SA
-    password:
-    driverClassName: org.h2.Driver
+    maxPoolSize: 20
     defaultSchema:
-    maxPoolSize: 10
     hibernate:
-      hbm2ddl.method: create-drop
+      hbm2ddl.method: create # update # or create for initial database deployment
       show_sql: true
       format_sql: true
-      dialect: org.hibernate.dialect.H2Dialect
-#---
-#spring:
-#  profiles: prod
-#datasource:
-#  sampleapp:
-#    maxPoolSize: 20
-#    defaultSchema:
-#    hibernate:
-#      hbm2ddl.method: update # or create for initial database deployment
-#      show_sql: true
-#      format_sql: true
-#      dialect: org.hibernate.dialect.PostgreSQLDialect
+      dialect: org.hibernate.dialect.PostgreSQLDialect

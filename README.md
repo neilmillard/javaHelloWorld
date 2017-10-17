@@ -38,7 +38,7 @@ The app can be deployed to Cloud Foundry, after the ```cf``` cmd line is install
 
 **manifest**
 ```batch
-cf push hellowworldbackend
+cf push helloworldbackend
 ```
 
 **manually** 
@@ -55,7 +55,15 @@ cf bind-service helloworldbackend hw-postgres
 cf restart helloworldbackend
 ```
 
-binding to services
+
+accessing service
+-----------------
+
+cf routes
+
+
+
+for developers - binding to services
 -------------------
 
 to bind to services in CF check the following example [ref](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#cloud-deployment-cloud-foundry-services)

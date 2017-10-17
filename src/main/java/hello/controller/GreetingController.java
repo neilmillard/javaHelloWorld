@@ -18,7 +18,7 @@ public class GreetingController {
     // This annotation can accept method=GET otherwise all requests are routed
     // The response is marshalled into JSON by Jackson 2 (MappingJackson2HttpMessageConverter)
     // CORS is also enabled for this request https://spring.io/guides/gs/rest-service-cors/
-    @CrossOrigin(origins = "http://localhost:8000")
+    @CrossOrigin
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name){
         return new Greeting(counter.incrementAndGet(),
