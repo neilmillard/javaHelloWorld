@@ -31,7 +31,7 @@ is prod or local, if not specified, default is used. this is aliased to local
 create service
 --------------
 ```batch
-cf create-service elephantsql turtle hw-postgres
+cf create-service cleardb spark hw-mysql
 ```
 
 The app can be deployed to Cloud Foundry, after the ```cf``` cmd line is installed and logged in.
@@ -51,7 +51,7 @@ bind and run app
 -------
 
 ```batch
-cf bind-service helloworldbackend hw-postgres
+cf bind-service helloworldbackend hw-mysql
 cf restart helloworldbackend
 ```
 
@@ -61,6 +61,10 @@ accessing service
 
 cf routes
 
+debugging
+---------
+
+cf logs helloworldbackend --recent
 
 
 for developers - binding to services

@@ -8,4 +8,4 @@ datasource:
       hbm2ddl.method: create # update # or create for initial database deployment
       show_sql: true
       format_sql: true
-      dialect: org.hibernate.dialect.PostgreSQLDialect
+      dialect: org.hibernate.dialect.MySQLDialect
