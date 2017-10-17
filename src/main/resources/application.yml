@@ -15,14 +15,15 @@ datasource:
       show_sql: true
       format_sql: true
       dialect: org.hibernate.dialect.H2Dialect
----
-spring:
-  profiles: prod
-datasource:
-  sampleapp:
-    maxPoolSize: 20
-    hibernate:
-      hbm2ddl.method: update
-      show_sql: true
-      format_sql: true
-      dialect: org.hibernate.dialect.PostgreSQLDialect
+#---
+#spring:
+#  profiles: prod
+#datasource:
+#  sampleapp:
+#    maxPoolSize: 20
+#    defaultSchema:
+#    hibernate:
+#      hbm2ddl.method: update # or create for initial database deployment
+#      show_sql: true
+#      format_sql: true
+#      dialect: org.hibernate.dialect.PostgreSQLDialect

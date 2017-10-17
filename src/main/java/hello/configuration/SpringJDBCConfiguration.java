@@ -32,8 +32,9 @@ public class SpringJDBCConfiguration {
      * Populate SpringBoot DataSourceProperties object directly from application.yml
      * based on prefix.Thanks to .yml, Hierachical data is mapped out of the box with matching-name
      * properties of DataSourceProperties object].
-     * for PCF we need to parse ENV['VCAP_SERVICES'].json for our service_name, then return the credentials array
-     * hostname, username,port,password,name (name of database)
+     * for PCF we use the cloud() services
+     * https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html
+     * https://docs.pivotal.io/pivotalcf/1-12/buildpacks/java/configuring-service-connections/spring-service-bindings.html
      */
     @Bean
     @Primary
@@ -104,7 +105,7 @@ public class SpringJDBCConfiguration {
         properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("datasource.sampleapp.hibernate.hbm2ddl.method"));
         properties.put("hibernate.show_sql", environment.getRequiredProperty("datasource.sampleapp.hibernate.show_sql"));
         properties.put("hibernate.format_sql", environment.getRequiredProperty("datasource.sampleapp.hibernate.format_sql"));
-        if(StringUtils.isBlank(environment.getRequiredProperty("datasource.sampleapp.defaultSchema"))){
+        if(!StringUtils.isBlank(environment.getRequiredProperty("datasource.sampleapp.defaultSchema"))){
             properties.put("hibernate.default_schema", environment.getRequiredProperty("datasource.sampleapp.defaultSchema"));
         }
         return properties;
