@@ -1,5 +1,7 @@
-package hello;
+package hello.controller;
 
+import hello.model.Greeting;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +17,8 @@ public class GreetingController {
 
     // This annotation can accept method=GET otherwise all requests are routed
     // The response is marshalled into JSON by Jackson 2 (MappingJackson2HttpMessageConverter)
+    // CORS is also enabled for this request https://spring.io/guides/gs/rest-service-cors/
+    @CrossOrigin
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name){
         return new Greeting(counter.incrementAndGet(),
