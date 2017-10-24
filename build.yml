@@ -12,5 +12,5 @@ inputs:
 - name: resource-web-hw
 
 run:
-  path: gradlew
+  path: ./gradlew
   args: ["bootRepackage"]
