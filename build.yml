@@ -13,4 +13,4 @@ inputs:
 
 run:
   path: sh
-  args: ["resource-web-hw/gradlew bootRepackage"]
+  args: ["resource-web-hw/gradlew", "bootRepackage"]
