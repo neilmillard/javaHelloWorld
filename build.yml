@@ -15,7 +15,7 @@ inputs:
 #- name: build/libs
 
 run:
-  path: gradle
+  path: resource-web-hw/gradlew
   args: ["bootRepackage"]
   #dir: resource-web-hw
   user: root
