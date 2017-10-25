@@ -6,7 +6,7 @@ image_resource:
   type: docker-image
   source:
     repository: gradle
-    tag: '4.2.1-jre8'
+    tag: 'jdk8'
 
 inputs:
 - name: resource-web-hw
