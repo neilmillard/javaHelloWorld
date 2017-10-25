@@ -11,11 +11,11 @@ image_resource:
 inputs:
 - name: resource-web-hw
 
-outputs:
-- name: resource-web-hw/build/libs
+#outputs:
+#- name: build/libs
 
 run:
   path: gradle
   args: ["bootRepackage"]
-  dir: resource-web-hw
+  #dir: resource-web-hw
   user: root
