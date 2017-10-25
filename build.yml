@@ -12,6 +12,6 @@ inputs:
 - name: resource-web-hw
 
 run:
-  path: sh
-  args: ["resource-web-hw/gradlew", "bootRepackage"]
-  dir: /home/gradle
+  path: pwd
+  #args: ["resource-web-hw/gradlew", "bootRepackage"]
+  #dir: /home/gradle
