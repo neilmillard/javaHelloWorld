@@ -13,5 +13,5 @@ inputs:
 
 run:
   path: gradle
-  args: ["bootRepackage"]
+  args: ["bootRepackage", "--info"]
   dir: resource-web-hw
